@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Down</title>
+</head>
+<body>
+    <h3 align="center">You are only allowed to enter 50 characters in the input box.</h3>
+    <br>
+    <label for="userInput"></label><input type="text" id="userInput" onkeyup="checkLetters()">
+    <br>
+    <h4 align="center">Number of characters remaining:</h4>
+    <output id="output">50</output>
+</body>
+<script>
+    function checkLetters() {
+        var charLimit = 50;
+        var userInput = document.getElementById("userInput");
+        var charsLeft = charLimit - userInput.length;
+
+        if(charsLeft <= 0) {
+            document.getElementById("output").style.color = "red";
+        }
+        document.getElementById("output").innerHTML = charsLeft;
+    }
+
+</script>
+</html>

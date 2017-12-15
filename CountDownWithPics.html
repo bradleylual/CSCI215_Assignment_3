@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Down</title>
+</head>
+<body>
+    <h3 align="center">You are only allowed to enter 50 characters in the input box.</h3>
+    <br>
+    <label for="userInput"></label><input type="text" id="userInput" onkeyup="checkLetters()">
+    <br>
+    <h4 align="center">Number of characters remaining:</h4>
+    <output id="output">50</output>
+    <img id="numPicTens" src="imgs/05.png">
+    <img id="numPicOnes" src="imgs/00.png">
+</body>
+<script>
+    function checkLetters() {
+        var charLimit = 50;
+        var userInput = document.getElementById("userInput");
+        var charsLeft = (charLimit - userInput.length).toString();
+        var tens = parseInt(charsLeft.charAt(0));
+        var ones = parseInt(charsLeft.charAt(1));
+        var imgs = [];
+        for(var i = 0; i < 9; i++) {
+            imgs.push(new Image);
+        }
+        imgs[0].src = "imgs/00.png";
+        imgs[1].src = "imgs/01.png";
+        imgs[2].src = "imgs/02.png";
+        imgs[3].src = "imgs/03.png";
+        imgs[4].src = "imgs/04.png";
+        imgs[5].src = "imgs/05.png";
+        imgs[6].src = "imgs/06.png";
+        imgs[7].src = "imgs/07.png";
+        imgs[8].src = "imgs/08.png";
+        imgs[9].src = "imgs/09.png";
+
+        document.getElementById("numPicTens").innerHTML = imgs[tens];
+        document.getElementById("numPicOnes").innerHTML = imgs[ones];
+
+        if(charsLeft <= 0) {
+            document.getElementById("output").style.color = "red";
+        }
+        document.getElementById("output").innerHTML = charsLeft;
+    }
+
+</script>
+</html>
